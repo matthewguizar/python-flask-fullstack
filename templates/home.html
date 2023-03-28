@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+    <div class="jumbotron">
+        <p> welcome to the landing page</p>
+        <p>wanna sign up for nothing?</p>
+            <a href="{{url_for('signup_form')}}">sign up, it seriously does nothing</a>
+    </div>
+    <p>
+        {% if breed %}
+        the breed you entered is {{breed}}
+        Updated it in the form below
+        {% else %}
+        please enter your breed
+        {% endif %}
+    </p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.breed.label }} {{ form.breed }}
+        <br>
+        {{form.neutered.label}}{{form.neutered}}
+        <br>
+        {{form.food_choice.label}}{{form.food_choice}}
+        <br>
+        {{form.mood.label}}{{form.mood}}
+        <br>
+        Any other feedback?
+        <br>
+        {{form.feedback}}
+        <br>
+        {{ form.submit() }}
+    </form>
+
+{% endblock %}

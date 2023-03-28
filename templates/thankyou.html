@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<!--  <div class="jumbotron">-->
+<!--    <h1>thanks for signing up {{first}} {{last}}</h1>-->
+<!--  </div>-->
+  <h1>thank you for the info you gave us</h1>
+  {% for mess in get_flashed_messages() %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{mess}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  <ul>
+    <li>breed: {{session["breed"]}}</li>
+    <li>neutered: {{session["neutered"]}}</li>
+    <li>Mood: {{session["mood"]}}</li>
+    <li>food: {{session["food"]}}</li>
+    <li>feedback: {{session["feedback"]}}</li>
+  </ul>
+{% endblock %}
